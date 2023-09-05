@@ -1,0 +1,79 @@
+class Bill:
+    gst=10
+    service=40
+    def __init__(self,total):
+        self.total=total
+
+    def veg_pizza(self):
+        Price=180
+        self.total+=Price+Price*(Bill.gst/100)+Bill.service
+        print("---------------------------------------------------------------------------------------------------------------")
+       
+    def corn_cheese_pizza(self):
+        Price=200
+        extra_cheese=50
+        print("extra_cheese=50/-")
+        opt2=input("Do you want extra cheese...press<Y/N>")
+        if opt2=="y" or opt2=="Y":
+            self.total+=Price+Price*(Bill.gst/100)+Bill.service+extra_cheese
+        else:
+            self.total+=Price+Price*(Bill.gst/100)+Bill.service
+        print("---------------------------------------------------------------------------------------------------------------")
+       
+    def barbeque_chicken_pizza(self):
+        Price=280
+        self.total+=Price+Price*(Bill.gst/100)+Bill.service
+        print("---------------------------------------------------------------------------------------------------------------")
+
+    def chicken_tikka_pizza(self):
+        Price=350
+        extra_cheese=50
+        soft_drink=70
+        print("extra_cheese=50/-")
+        opt3=input("Do you want extra cheese...press<Y/N>(YES/NO)")
+        print("soft_drink=70/-")
+        opt4=input("Do you want soft drink...press<Y/N>(YES/NO)")
+        if (opt3=="y" or opt3=="Y") and (opt4=="y" or opt4=="Y"):
+            self.total+=Price+Price*(Bill.gst/100)+Bill.service+extra_cheese+soft_drink
+        elif opt3=="y" or opt3=="Y":
+            self.total+=Price+Price*(Bill.gst/100)+Bill.service+extra_cheese
+        elif opt4=="y" or opt4=="Y":
+            self.total+=Price+Price*(Bill.gst/100)+Bill.service+soft_drink
+            
+    def menu(self):
+        opt=int(input("PLEASE GIVE YOUR ORDER\n1.VEG PIZZA\t180/-\n2.CORN CHEESE PIZZA\t200/-\n3.BARBEQUE CHICKEN PIZZA\t280/-\n4.CHICKEN TIKKA PIZZA\t350/-\n"))
+        if opt==1:
+                pizza.veg_pizza()
+        elif opt==2:
+                pizza.corn_cheese_pizza()
+        elif opt==3:
+                pizza.barbeque_chicken_pizza()
+        elif opt==4:
+                pizza.chicken_tikka_pizza()
+        else:
+                print("Please choose correct option\n")
+
+    def final(self):
+        print("YOUR ORDER WILL BE DELIVERED SHORTLY")
+        print("---------------------------------------------------------------------------------------------------------------")
+        print("TOTAL BILL: ")
+        print("GST (per item)_=10 %\nSERVICE TAX=40/-")
+        print("AMOUNT TO BE PAID= ",self.total,"/-")
+        print("---------------------------------------------------------------------------------------------------------------")
+
+pizza=Bill(0)
+print("     \t\t\t\tWELCOME\n")
+print("      \t\t\t\tPIZZA HUT\n")
+print(" \n\t\tAddress: No 2, Plot No 120, Divya Sai Enclave HN 8/2/293/82, A/23,\n\t\t Road Number 5, Jubilee Hills, Hyderabad, Telangana 500033")
+print("---------------------------------------------------------------------------------------------------------------")
+customer=input("CUSTOMER NAME: ")
+pizza.menu()
+n=3
+while n>0:
+    opt2=input("Do you want to continue to order anything more??<y or Y>")
+    if opt2=="y" or opt2=="Y":
+         pizza.menu()
+    else:
+        break
+pizza.final()
+print("THANK YOU, VISIT AGAIN : )")
